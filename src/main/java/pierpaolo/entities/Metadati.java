@@ -5,13 +5,16 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "metadati")
 public abstract class Metadati {
     @Id
     @GeneratedValue
     private long id;
     private String ISBN;
     private String titolo;
+    @Column(name = "anno_pubblicazione")
     private int annoPubblicazione;
+    @Column(name = "num_pagine")
     private int numeroPagine;
 
     public Metadati() {
