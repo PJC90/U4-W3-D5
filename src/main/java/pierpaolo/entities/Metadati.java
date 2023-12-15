@@ -6,6 +6,8 @@ import javax.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "metadati")
+@NamedQuery(name = "ricercaMetadatiISBN",query = "SELECT a FROM Metadati a WHERE a.ISBN = :ISBN")
+//"SELECT a FROM Metadati a WHERE a.ISBN = :isbn"
 public abstract class Metadati {
     @Id
     @GeneratedValue

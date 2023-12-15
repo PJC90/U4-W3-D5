@@ -50,6 +50,9 @@ public class Application {
 //        metadatiDao.save(seneca);
 //        metadatiDao.save(nature);
 //        metadatiDao.save(focus);
+        System.out.println("***************************************     Rimozione dal catalogo di un elemento dato un codice ISBN");
+        metadatiDao.findByIsbnAndDelete("aa478xs5ae4");
+
 
         System.out.println("Hello World!");
         em.close();

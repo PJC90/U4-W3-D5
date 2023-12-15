@@ -5,6 +5,7 @@ import pierpaolo.entities.Prestito;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 
 public class MetadatiDao {
     private final EntityManager em;
@@ -35,5 +36,20 @@ public class MetadatiDao {
             // 3. Se non c'è --> "Non trovato"
             System.out.println("metadati di id " + id + " non è stato trovato");
         }
+    }
+    public void findByIsbnAndDelete(String ISBN){
+        TypedQuery<Metadati> findByIsbn = em.createQuery("SELECT a FROM Metadati a WHERE a.ISBN = :isbn", Metadati.class);
+        findByIsbn.setParameter("isbn", ISBN);
+        Metadati found = findByIsbn.getSingleResult();
+        if( found != null){
+            EntityTransaction transaction = em.getTransaction();
+            transaction.begin();
+            em.remove(found);
+            transaction.commit();
+            System.out.println("Metadati con titolo: " + found.getTitolo() + " eliminato!");
+        } else {
+            System.out.println("Metadati ISBN: " + ISBN + "non esiste nel database!");
+        }
+
     }
 }
