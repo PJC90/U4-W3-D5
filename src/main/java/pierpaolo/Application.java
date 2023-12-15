@@ -51,8 +51,11 @@ public class Application {
 //        metadatiDao.save(nature);
 //        metadatiDao.save(focus);
         System.out.println("***************************************     Rimozione dal catalogo di un elemento dato un codice ISBN");
-        metadatiDao.findByIsbnAndDelete("aa478xs5ae4");
-
+//        metadatiDao.findByIsbnAndDelete("aa478xs5ae4");
+//        "Imparare a vivere" ELIMINATO
+        System.out.println("***************************************     Ricerca per ISBN");
+        Metadati ricercaHomoDeusIsbn = metadatiDao.findByIsbn("1540a565ae4");
+        System.out.println("Ricerca per ISBN: " + ricercaHomoDeusIsbn.getISBN() + " ------> " + ricercaHomoDeusIsbn);
 
         System.out.println("Hello World!");
         em.close();

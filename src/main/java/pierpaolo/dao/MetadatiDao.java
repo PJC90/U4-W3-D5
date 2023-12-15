@@ -50,6 +50,10 @@ public class MetadatiDao {
         } else {
             System.out.println("Metadati ISBN: " + ISBN + "non esiste nel database!");
         }
-
+    }
+    public Metadati findByIsbn(String ISBN) {
+        TypedQuery<Metadati> findByIsbn = em.createNamedQuery("ricercaMetadatiISBN", Metadati.class);
+        findByIsbn.setParameter("ISBN", ISBN);
+        return findByIsbn.getSingleResult();
     }
 }
