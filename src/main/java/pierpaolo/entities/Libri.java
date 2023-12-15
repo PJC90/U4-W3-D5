@@ -1,8 +1,11 @@
 package pierpaolo.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name = "ricercaLibriAUTORE", query="SELECT a FROM Libri a WHERE a.autore = :autore")
+
 public class Libri extends Metadati{
     private String autore;
     private String genere;

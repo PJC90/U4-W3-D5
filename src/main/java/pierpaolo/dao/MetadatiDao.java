@@ -1,5 +1,6 @@
 package pierpaolo.dao;
 
+import pierpaolo.entities.Libri;
 import pierpaolo.entities.Metadati;
 import pierpaolo.entities.Prestito;
 
@@ -60,6 +61,12 @@ public class MetadatiDao {
     public List<Metadati> findByANNO(int annoPubblicazione) {
         TypedQuery<Metadati> findByIsbn = em.createNamedQuery("ricercaMetadatiANNO", Metadati.class);
         findByIsbn.setParameter("annoPubblicazione", annoPubblicazione);
+        return findByIsbn.getResultList();
+    }
+
+    public List<Libri> findByAutore(String autore) {
+        TypedQuery<Libri> findByIsbn = em.createNamedQuery("ricercaLibriAUTORE", Libri.class);
+        findByIsbn.setParameter("autore", autore);
         return findByIsbn.getResultList();
     }
 }

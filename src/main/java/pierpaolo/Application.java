@@ -58,8 +58,8 @@ public class Application {
         System.out.println("Ricerca per ISBN: " + ricercaHomoDeusIsbn.getISBN() + " ------> " + ricercaHomoDeusIsbn);
         System.out.println("***************************************     Ricerca per anno di pubblicazione");
         metadatiDao.findByANNO(2023).forEach(System.out::println);
-
-
+        System.out.println("***************************************     Ricerca per autore");
+        metadatiDao.findByAutore("Yuval Noha Harari").forEach(System.out::println);
 
 
         System.out.println("Hello World!");
