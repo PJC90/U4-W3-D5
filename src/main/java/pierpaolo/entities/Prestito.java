@@ -21,11 +21,11 @@ public class Prestito {
     public Prestito() {
     }
 
-    public Prestito(Utente utente, Metadati prestitoLibroRivista, LocalDate dataInizioPrestito, LocalDate dataRestituzione30) {
+    public Prestito(Utente utente, Metadati prestitoLibroRivista, LocalDate dataInizioPrestito) {
         this.utente = utente;
         this.prestitoLibroRivista = prestitoLibroRivista;
         this.dataInizioPrestito = dataInizioPrestito;
-        this.dataRestituzione30 = dataRestituzione30.plusDays(30);
+        this.dataRestituzione30 = dataInizioPrestito.plusDays(30);
     }
 
     public long getId() {
