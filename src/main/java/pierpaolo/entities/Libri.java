@@ -1,5 +1,8 @@
 package pierpaolo.entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Libri extends Metadati{
     private String autore;
     private String genere;

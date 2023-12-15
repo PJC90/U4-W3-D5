@@ -1,6 +1,12 @@
 package pierpaolo.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+@Entity
 public class Rivista extends Metadati{
+    @Enumerated(EnumType.STRING)
     private Periodicità periodicità;
 
     public Rivista() {

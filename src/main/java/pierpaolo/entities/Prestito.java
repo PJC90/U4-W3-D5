@@ -1,11 +1,18 @@
 package pierpaolo.entities;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
-
+@Entity
 public class Prestito {
+    @Id
+    @GeneratedValue
     private long id;
+    @ManyToOne
+    @JoinColumn(name = "prestito_utente")
     private Utente utente;
+    @ManyToOne
+    @JoinColumn(name = "elemento_prestato")
     private Metadati prestitoLibroRivista;
     private LocalDate dataInizioPrestito;
     private LocalDate dataRestituzione30;

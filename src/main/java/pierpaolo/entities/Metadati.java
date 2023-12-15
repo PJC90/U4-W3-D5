@@ -1,8 +1,13 @@
 package pierpaolo.entities;
 
-import java.util.Random;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Metadati {
+    @Id
+    @GeneratedValue
     private long id;
     private String ISBN;
     private String titolo;

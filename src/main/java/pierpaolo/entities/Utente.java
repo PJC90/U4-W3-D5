@@ -1,8 +1,13 @@
 package pierpaolo.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDate;
-
+@Entity
 public class Utente {
+    @Id
+    @GeneratedValue
     private long id;
     private long numeroTessera;
     private String nome;
