@@ -8,6 +8,7 @@ import javax.persistence.*;
 @DiscriminatorColumn(name = "metadati")
 @NamedQuery(name = "ricercaMetadatiISBN",query = "SELECT a FROM Metadati a WHERE a.ISBN = :ISBN")
 //"SELECT a FROM Metadati a WHERE a.ISBN = :isbn"
+@NamedQuery(name = "ricercaMetadatiANNO", query="SELECT a FROM Metadati a WHERE a.annoPubblicazione = :annoPubblicazione")
 public abstract class Metadati {
     @Id
     @GeneratedValue

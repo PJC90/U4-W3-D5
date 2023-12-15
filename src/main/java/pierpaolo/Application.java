@@ -56,6 +56,11 @@ public class Application {
         System.out.println("***************************************     Ricerca per ISBN");
         Metadati ricercaHomoDeusIsbn = metadatiDao.findByIsbn("1540a565ae4");
         System.out.println("Ricerca per ISBN: " + ricercaHomoDeusIsbn.getISBN() + " ------> " + ricercaHomoDeusIsbn);
+        System.out.println("***************************************     Ricerca per anno di pubblicazione");
+        metadatiDao.findByANNO(2023).forEach(System.out::println);
+
+
+
 
         System.out.println("Hello World!");
         em.close();

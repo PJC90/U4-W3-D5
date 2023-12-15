@@ -6,6 +6,7 @@ import pierpaolo.entities.Prestito;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class MetadatiDao {
     private final EntityManager em;
@@ -55,5 +56,10 @@ public class MetadatiDao {
         TypedQuery<Metadati> findByIsbn = em.createNamedQuery("ricercaMetadatiISBN", Metadati.class);
         findByIsbn.setParameter("ISBN", ISBN);
         return findByIsbn.getSingleResult();
+    }
+    public List<Metadati> findByANNO(int annoPubblicazione) {
+        TypedQuery<Metadati> findByIsbn = em.createNamedQuery("ricercaMetadatiANNO", Metadati.class);
+        findByIsbn.setParameter("annoPubblicazione", annoPubblicazione);
+        return findByIsbn.getResultList();
     }
 }
