@@ -9,6 +9,7 @@ import javax.persistence.*;
 @NamedQuery(name = "ricercaMetadatiISBN",query = "SELECT a FROM Metadati a WHERE a.ISBN = :ISBN")
 //"SELECT a FROM Metadati a WHERE a.ISBN = :isbn"
 @NamedQuery(name = "ricercaMetadatiANNO", query="SELECT a FROM Metadati a WHERE a.annoPubblicazione = :annoPubblicazione")
+@NamedQuery(name = "ricercaMetadatiTITOLOoPARTE",query = "SELECT a FROM Metadati a WHERE LOWER(a.titolo) LIKE LOWER(CONCAT('%', :titolo, '%'))")
 public abstract class Metadati {
     @Id
     @GeneratedValue

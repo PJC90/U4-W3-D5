@@ -69,4 +69,9 @@ public class MetadatiDao {
         findByIsbn.setParameter("autore", autore);
         return findByIsbn.getResultList();
     }
+    public List<Metadati> findByAutoreToP(String titolo) {
+        TypedQuery<Metadati> findByIsbn = em.createNamedQuery("ricercaMetadatiTITOLOoPARTE", Metadati.class);
+        findByIsbn.setParameter("titolo", titolo);
+        return findByIsbn.getResultList();
+    }
 }

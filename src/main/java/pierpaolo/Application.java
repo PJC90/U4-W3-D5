@@ -60,6 +60,9 @@ public class Application {
         metadatiDao.findByANNO(2023).forEach(System.out::println);
         System.out.println("***************************************     Ricerca per autore");
         metadatiDao.findByAutore("Yuval Noha Harari").forEach(System.out::println);
+        System.out.println("***************************************     Ricerca per titolo o parte di esso");
+        metadatiDao.findByAutoreToP("Sap").forEach(System.out::println);
+
 
 
         System.out.println("Hello World!");
