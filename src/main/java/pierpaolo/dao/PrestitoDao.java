@@ -1,10 +1,13 @@
 package pierpaolo.dao;
 
+import pierpaolo.entities.Metadati;
 import pierpaolo.entities.Prestito;
 import pierpaolo.entities.Utente;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class PrestitoDao {
     private final EntityManager em;
@@ -36,4 +39,9 @@ public class PrestitoDao {
             System.out.println("elemento prestato di id " + id + " non è stato trovato");
         }
     }
+//    public List<Metadati> findByTessera(long numeroTessera) {
+//        TypedQuery<Metadati> findByIsbn = em.createNamedQuery("ricercaPrestitiDaTessera", Metadati.class);
+//        findByIsbn.setParameter("numeroTessera", numeroTessera);
+//        return findByIsbn.getResultList();
+//    }
 }

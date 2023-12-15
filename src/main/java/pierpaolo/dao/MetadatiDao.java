@@ -39,20 +39,20 @@ public class MetadatiDao {
             System.out.println("metadati di id " + id + " non è stato trovato");
         }
     }
-    public void findByIsbnAndDelete(String ISBN){
-        TypedQuery<Metadati> findByIsbn = em.createQuery("SELECT a FROM Metadati a WHERE a.ISBN = :isbn", Metadati.class);
-        findByIsbn.setParameter("isbn", ISBN);
-        Metadati found = findByIsbn.getSingleResult();
-        if( found != null){
-            EntityTransaction transaction = em.getTransaction();
-            transaction.begin();
-            em.remove(found);
-            transaction.commit();
-            System.out.println("Metadati con titolo: " + found.getTitolo() + " eliminato!");
-        } else {
-            System.out.println("Metadati ISBN: " + ISBN + "non esiste nel database!");
-        }
+public void findByIsbnAndDelete(String ISBN){
+    TypedQuery<Metadati> findByIsbn = em.createNamedQuery("ricercaMetadatiISBN", Metadati.class);
+    findByIsbn.setParameter("ISBN", ISBN);
+    Metadati found = findByIsbn.getSingleResult();
+    if( found != null){
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        em.remove(found);
+        transaction.commit();
+        System.out.println("Metadati con titolo: " + found.getTitolo() + " eliminato!");
+    } else {
+        System.out.println("Metadati ISBN: " + ISBN + "non esiste nel database!");
     }
+}
     public Metadati findByIsbn(String ISBN) {
         TypedQuery<Metadati> findByIsbn = em.createNamedQuery("ricercaMetadatiISBN", Metadati.class);
         findByIsbn.setParameter("ISBN", ISBN);
