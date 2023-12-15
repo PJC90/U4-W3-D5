@@ -6,8 +6,8 @@ public class Rivista extends Metadati{
     public Rivista() {
     }
 
-    public Rivista(String titolo, int annoPubblicazione, int numeroPagine, Periodicità periodicità) {
-        super(titolo, annoPubblicazione, numeroPagine);
+    public Rivista(String ISBN, String titolo, int annoPubblicazione, int numeroPagine, Periodicità periodicità) {
+        super(ISBN, titolo, annoPubblicazione, numeroPagine);
         this.periodicità = periodicità;
     }
 
@@ -15,5 +15,14 @@ public class Rivista extends Metadati{
         return periodicità;
     }
 
-   
+    public void setPeriodicità(Periodicità periodicità) {
+        this.periodicità = periodicità;
+    }
+
+    @Override
+    public String toString() {
+        return "Rivista{" +
+                "periodicità=" + periodicità +
+                "} " + super.toString();
+    }
 }

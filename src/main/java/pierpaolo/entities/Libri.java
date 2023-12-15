@@ -7,8 +7,8 @@ public class Libri extends Metadati{
     public Libri() {
     }
 
-    public Libri(String titolo, int annoPubblicazione, int numeroPagine, String autore, String genere) {
-        super(titolo, annoPubblicazione, numeroPagine);
+    public Libri(String ISBN, String titolo, int annoPubblicazione, int numeroPagine, String autore, String genere) {
+        super(ISBN, titolo, annoPubblicazione, numeroPagine);
         this.autore = autore;
         this.genere = genere;
     }
@@ -21,4 +21,19 @@ public class Libri extends Metadati{
         return genere;
     }
 
+    public void setAutore(String autore) {
+        this.autore = autore;
+    }
+
+    public void setGenere(String genere) {
+        this.genere = genere;
+    }
+
+    @Override
+    public String toString() {
+        return "Libri{" +
+                "autore='" + autore + '\'' +
+                ", genere='" + genere + '\'' +
+                "} " + super.toString();
+    }
 }
