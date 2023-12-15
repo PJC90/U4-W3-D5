@@ -9,7 +9,7 @@ public class Prestito {
     @GeneratedValue
     private long id;
     @ManyToOne
-    @JoinColumn(name = "prestito_utente")
+    @JoinColumn(name = "utente_pres")
     private Utente utente;
     @ManyToOne
     @JoinColumn(name = "elemento_prestato")
