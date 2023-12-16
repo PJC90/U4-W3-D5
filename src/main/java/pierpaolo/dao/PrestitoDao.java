@@ -39,9 +39,9 @@ public class PrestitoDao {
             System.out.println("elemento prestato di id " + id + " non è stato trovato");
         }
     }
-//    public List<Metadati> findByTessera(long numeroTessera) {
-//        TypedQuery<Metadati> findByIsbn = em.createNamedQuery("ricercaPrestitiDaTessera", Metadati.class);
-//        findByIsbn.setParameter("numeroTessera", numeroTessera);
-//        return findByIsbn.getResultList();
-//    }
+    public List<Prestito> findByTessera(long numeroTessera) {
+        TypedQuery<Prestito> findByIsbn = em.createNamedQuery("ricercaPrestitiDaTessera", Prestito.class);
+        findByIsbn.setParameter("numeroTessera", numeroTessera);
+        return findByIsbn.getResultList();
+    }
 }

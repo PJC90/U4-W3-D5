@@ -63,8 +63,7 @@ public class Application {
         System.out.println("***************************************     Ricerca per titolo o parte di esso");
         metadatiDao.findByAutoreToP("Sap").forEach(System.out::println);
         System.out.println("***************************************     Ricerca elementi in prestito dato un num di tessera");
-//        prestitoDao.findByTessera(123123125).forEach(System.out::println);
-        //da sistemare
+        prestitoDao.findByTessera(123123125).forEach(System.out::println);
 
         System.out.println("Hello World!");
         em.close();
