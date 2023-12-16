@@ -44,4 +44,8 @@ public class PrestitoDao {
         findByIsbn.setParameter("numeroTessera", numeroTessera);
         return findByIsbn.getResultList();
     }
+    public List<Prestito> findPrestitiScadutiNonRestituiti() {
+        TypedQuery<Prestito> findByIsbn = em.createNamedQuery("prestitiScadutiNonRestituiti", Prestito.class);
+        return findByIsbn.getResultList();
+    }
 }

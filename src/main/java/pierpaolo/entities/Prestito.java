@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
 @Entity
+@NamedQuery(name = "prestitiScadutiNonRestituiti",query = "SELECT a FROM Prestito a WHERE a.getDataRestituzioneEffettiva = null AND a.dataRestituzione30 < CURRENT_DATE")
 @NamedQuery(name = "ricercaPrestitiDaTessera",query = "SELECT a FROM Prestito a WHERE a.dataRestituzione30 > CURRENT_DATE AND a.utente.numeroTessera = :numeroTessera")
 public class Prestito {
     @Id
@@ -27,6 +28,14 @@ public class Prestito {
         this.prestitoLibroRivista = prestitoLibroRivista;
         this.dataInizioPrestito = dataInizioPrestito;
         this.dataRestituzione30 = dataInizioPrestito.plusDays(30);
+    }
+
+    public Prestito(Utente utente, Metadati prestitoLibroRivista, LocalDate dataInizioPrestito, LocalDate getDataRestituzioneEffettiva) {
+        this.utente = utente;
+        this.prestitoLibroRivista = prestitoLibroRivista;
+        this.dataInizioPrestito = dataInizioPrestito;
+        this.dataRestituzione30 = dataInizioPrestito.plusDays(30);
+        this.getDataRestituzioneEffettiva = getDataRestituzioneEffettiva;
     }
 
     public long getId() {

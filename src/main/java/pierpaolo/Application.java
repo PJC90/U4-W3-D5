@@ -29,21 +29,24 @@ public class Application {
         Rivista nature = new Rivista("123456","Nature",2023,98, Periodicità.MENSILE);
         Rivista focus = new Rivista("123456","Focus",2023,148, Periodicità.SETTIMANALE);
         // ******************************************************       AGGIUNTA PRESTITI
-        Utente giorgiaDB = utenteDao.findById(3);
+        Utente giorgiaDB = utenteDao.findById(21);
         Metadati giorgiaFocus = metadatiDao.findById(8);
         Prestito giorgiaPrestito = new Prestito(giorgiaDB,giorgiaFocus,LocalDate.of(2023,12,12));
 //        prestitoDao.save(giorgiaPrestito);
-        Utente aldoDB = utenteDao.findById(1);
+        Utente aldoDB = utenteDao.findById(19);
         Metadati aldoSapiens = metadatiDao.findById(4);
         Prestito aldoDBPrestito = new Prestito(aldoDB,aldoSapiens,LocalDate.of(2023,6,2));
 //        prestitoDao.save(aldoDBPrestito);
-        Utente massimilianoDB = utenteDao.findById(2);
+        Utente massimilianoDB = utenteDao.findById(20);
         Metadati massimilianoHomo = metadatiDao.findById(5);
         Prestito massimilianoPrestito = new Prestito(massimilianoDB,massimilianoHomo,LocalDate.of(2023,1,20));
 //        prestitoDao.save(massimilianoPrestito);
-
+        Metadati massimilianoNature = metadatiDao.findById(7);
+        Prestito massimilianoPrestito2 = new Prestito(massimilianoDB,massimilianoNature,LocalDate.of(2022,12,30), LocalDate.now());
+//        prestitoDao.save(massimilianoPrestito2);
 
         System.out.println("***************************************     Aggiunta elementi al catalogo");
+//        utenteDao.save(u1);
 //        utenteDao.save(u2);
 //        utenteDao.save(u3);
 //        metadatiDao.save(homoDeus);
@@ -64,6 +67,9 @@ public class Application {
         metadatiDao.findByAutoreToP("Sap").forEach(System.out::println);
         System.out.println("***************************************     Ricerca elementi attualmente in prestito dato un num di tessera");
         prestitoDao.findByTessera(123123125).forEach(System.out::println);
+        System.out.println("***************************************     Ricerca prestiti scaduti e non ancora restituiti");
+        prestitoDao.findPrestitiScadutiNonRestituiti().forEach(System.out::println);
+
 
         System.out.println("Hello World!");
         em.close();
