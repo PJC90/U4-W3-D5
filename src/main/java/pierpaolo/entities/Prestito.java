@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
 @Entity
-@NamedQuery(name = "ricercaPrestitiDaTessera",query = "SELECT a FROM Prestito a WHERE a.utente.numeroTessera = :numeroTessera")
+@NamedQuery(name = "ricercaPrestitiDaTessera",query = "SELECT a FROM Prestito a WHERE a.dataRestituzione30 > CURRENT_DATE AND a.utente.numeroTessera = :numeroTessera")
 public class Prestito {
     @Id
     @GeneratedValue
